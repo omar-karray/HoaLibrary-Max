@@ -1,0 +1,79 @@
+HoaLibrary for Max - Copyright and Credits
+===========================================
+
+This is a derivative work based on the original HoaLibrary.
+
+ORIGINAL AUTHORS (v1.0 - v2.2, 2012-2015)
+Copyright (C) 2012-2015 Julien Colafrancesco, Pierre Guillot, Eliott Paris
+CICM - Centre de Recherche Informatique et Création Musicale
+Université Paris 8, France
+http://cicm.mshparisnord.org/
+
+MODIFICATIONS FOR MAX 9 AND APPLE SILICON (v3.0+, 2025)
+Copyright (C) 2025 Omar Karray
+Modernization work: Apple Silicon support, Max SDK 8.2.0 compatibility,
+C++ standards compliance, CMake build system
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+---
+
+DETAILED CREDITS:
+
+Original Development (2012-2015):
+  Pierre Guillot          - Lead Developer
+  Eliott Paris           - Lead Developer  
+  Julien Colafrancesco   - Lead Developer
+  CICM                   - Research Center
+
+v3.0 Modernization (2025):
+  Omar Karray            - Current Maintainer
+  
+  Contributions:
+  - Fixed C++ compilation for modern compilers (Clang 17+)
+  - Updated to Max SDK 8.2.0 APIs
+  - Universal Binary support (x86_64 + arm64)
+  - Modern CMake build system
+  - GitHub Actions CI/CD pipeline
+  - Documentation updates
+
+Third-Party Components:
+  - HoaLibrary C++ (MIT License) - Pierre Guillot, Eliott Paris, Julien Colafrancesco
+  - Max SDK 8.2.0 - Cycling '74
+  - FFT implementations - Various authors (see source files)
+
+---
+
+CONTACT:
+
+For v3.0+ (Max 9 Apple Silicon):
+  Maintainer: Omar Karray
+  GitHub: https://github.com/omar-karray/HoaLibrary-Max
+  Issues: https://github.com/omar-karray/HoaLibrary-Max/issues
+
+For original HoaLibrary:
+  CICM - Université Paris 8
+  Email: cicm.mshparisnord@gmail.com
+  Website: http://www.mshparisnord.fr/hoalibrary/
+
+---
+
+LICENSE:
+
+This software is licensed under the GNU General Public License v3.0.
+See LICENSE.txt for the complete license text.
+
+For commercial licensing inquiries (avoiding GPL restrictions):
+  - For v3.0+ modifications: Contact Omar Karray
+  - For original code: Contact CICM (cicm.mshparisnord.org)

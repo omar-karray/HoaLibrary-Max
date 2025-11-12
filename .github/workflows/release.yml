@@ -1,0 +1,118 @@
+name: Build and Release HoaLibrary
+
+on:
+  push:
+    tags:
+      - 'v*'  # Trigger on version tags like v3.0.0
+  workflow_dispatch:  # Allow manual triggering
+
+jobs:
+  build-macos:
+    name: Build macOS Universal Binary
+    runs-on: macos-latest
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        submodules: recursive
+    
+    - name: Install dependencies
+      run: |
+        brew install cmake
+    
+    - name: Download Max SDK
+      run: |
+        mkdir -p ~/max-sdk
+        cd ~/max-sdk
+        curl -L -o max-sdk.zip https://cycling74.com/download/max-sdk-8.2.0
+        unzip -q max-sdk.zip
+        mv max-sdk-* max-sdk
+    
+    - name: Configure CMake
+      run: |
+        mkdir -p build
+        cd build
+        cmake .. -DMAX_SDK_PATH=~/max-sdk/max-sdk
+    
+    - name: Build all externals
+      run: |
+        cd build
+        cmake --build . -j$(sysctl -n hw.ncpu)
+    
+    - name: Verify Universal Binary
+      run: |
+        echo "Verifying externals are Universal Binary..."
+        FAIL=0
+        for mxo in Package/HoaLibrary/externals/*.mxo; do
+          if [ -d "$mxo" ]; then
+            BINARY="$mxo/Contents/MacOS/$(basename "$mxo" .mxo)"
+            if [ -f "$BINARY" ]; then
+              ARCHS=$(lipo -info "$BINARY" | grep "Architectures" || echo "")
+              if [[ "$ARCHS" != *"arm64"* ]] || [[ "$ARCHS" != *"x86_64"* ]]; then
+                echo "❌ $(basename "$mxo") is NOT Universal Binary"
+                FAIL=1
+              else
+                echo "✓ $(basename "$mxo")"
+              fi
+            fi
+          fi
+        done
+        if [ $FAIL -ne 0 ]; then
+          echo "ERROR: Some externals are not Universal Binary"
+          exit 1
+        fi
+        echo "✓ All externals verified as Universal Binary"
+    
+    - name: Create release package
+      run: |
+        chmod +x create_release.sh
+        ./create_release.sh
+    
+    - name: Upload release artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: HoaLibrary-Mac-v${{ github.ref_name }}
+        path: releases/HoaLibrary-Mac-v*.zip
+        retention-days: 5
+    
+    - name: Create GitHub Release
+      if: startsWith(github.ref, 'refs/tags/')
+      uses: softprops/action-gh-release@v1
+      with:
+        files: releases/HoaLibrary-Mac-v*.zip
+        body: |
+          # HoaLibrary ${{ github.ref_name }} for Max 9
+          
+          **Now with Apple Silicon support!**
+          
+          ## Downloads
+          
+          - **macOS Universal Binary** (Intel + Apple Silicon)
+            - Compatible with Max 9.0 or higher
+            - Requires macOS 10.15 (Catalina) or higher
+          
+          ## Installation
+          
+          1. Download `HoaLibrary-Mac-v*.zip`
+          2. Extract and copy `HoaLibrary` folder to: `~/Documents/Max 9/Packages/`
+          3. Restart Max 9
+          4. Test with objects: `hoa.2d.encoder~`, `hoa.3d.decoder~`
+          
+          ## What's Included
+          
+          - 37 Universal Binary externals (x86_64 + arm64)
+          - Complete help documentation
+          - Example patches and abstractions
+          - 2D and 3D spatial audio processing tools
+          
+          ## Credits
+          
+          **Original authors**: Pierre Guillot, Eliott Paris, Julien Colafrancesco (CICM)
+          **v3.0 modernization**: Community build for Max 9 and Apple Silicon
+          
+          See [RELEASE_NOTES.md](https://github.com/${{ github.repository }}/blob/${{ github.ref_name }}/RELEASE_NOTES.md) for full details.
+        draft: false
+        prerelease: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

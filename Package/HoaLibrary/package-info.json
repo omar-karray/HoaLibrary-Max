@@ -1,0 +1,61 @@
+{
+	"name" : "HoaLibrary",
+	"displayname" : "HoaLibrary for Max",
+	"version" : "3.0.0",
+	"author" : "Omar Karray (v3.0 Maintainer)",
+	"authors" : [ "Omar Karray (v3.0 Maintainer)", "Julien Colafrancesco (Original)", "Pierre Guillot (Original)", "Eliott Paris (Original)" ],
+	"description" : "High Order Ambisonics library for Max 9. Universal Binary (Intel + Apple Silicon) version. A comprehensive suite of externals and patches for 2D and 3D spatial audio processing using circular and spherical harmonics. Originally developed by CICM/Paris 8, modernized for Max 9 by Omar Karray.",
+	"tags" : [ "ambisonics", "spatial audio", "HOA", "3D audio", "sound spatialization" ],
+	"website" : "https://github.com/CICM/HoaLibrary-Max",
+	"extends" : "",
+	"extensible" : 0,
+	"max_version_min" : "9.0",
+	"max_version_max" : "none",
+	"os" : {
+		"macintosh" : {
+			"min_version" : "10.15",
+			"platform" : [ "x64", "aarch64" ]
+		}
+	},
+	"filelist" : {
+		"externals" : [
+			"c.convolve~.mxo",
+			"c.freeverb~.mxo",
+			"hoa.2d.decoder~.mxo",
+			"hoa.2d.encoder~.mxo",
+			"hoa.2d.exchanger~.mxo",
+			"hoa.2d.map~.mxo",
+			"hoa.2d.meter~.mxo",
+			"hoa.2d.optim~.mxo",
+			"hoa.2d.projector~.mxo",
+			"hoa.2d.recomposer.mxo",
+			"hoa.2d.recomposer~.mxo",
+			"hoa.2d.rotate~.mxo",
+			"hoa.2d.scope~.mxo",
+			"hoa.2d.space.mxo",
+			"hoa.2d.vector~.mxo",
+			"hoa.2d.wider~.mxo",
+			"hoa.3d.decoder~.mxo",
+			"hoa.3d.encoder~.mxo",
+			"hoa.3d.exchanger~.mxo",
+			"hoa.3d.map~.mxo",
+			"hoa.3d.meter~.mxo",
+			"hoa.3d.optim~.mxo",
+			"hoa.3d.scope~.mxo",
+			"hoa.3d.vector~.mxo",
+			"hoa.3d.wider~.mxo",
+			"hoa.connect.mxo",
+			"hoa.dac~.mxo",
+			"hoa.gain~.mxo",
+			"hoa.in.mxo",
+			"hoa.in~.mxo",
+			"hoa.map.mxo",
+			"hoa.out.mxo",
+			"hoa.out~.mxo",
+			"hoa.pi.mxo",
+			"hoa.pi~.mxo",
+			"hoa.process~.mxo",
+			"hoa.thisprocess~.mxo"
+		]
+	}
+}

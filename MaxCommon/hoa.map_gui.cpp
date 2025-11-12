@@ -558,7 +558,7 @@ void hoamap_source_dialog(t_hoa_map *x, Source* src)
         char *text = NULL;
         char desc[100];
         sprintf(desc, "Source %ld description :", src->getIndex());
-        jdialog_showtext(desc, (char*)src->getDescription().c_str(), 0, &text);
+        jdialog_showtext(desc, (char*)src->getDescription().c_str(), 0, (const char**)&text);
         
         if(text)
         {
@@ -578,7 +578,7 @@ void hoamap_group_dialog(t_hoa_map *x, Source::Group* grp)
         char *text = NULL;
         char desc[100];
         sprintf(desc, "Group %ld description :", grp->getIndex());
-        jdialog_showtext(desc, (char*)grp->getDescription().c_str(), 0, &text);
+        jdialog_showtext(desc, (char*)grp->getDescription().c_str(), 0, (const char**)&text);
         
         if(text)
         {

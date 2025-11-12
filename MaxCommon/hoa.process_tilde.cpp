@@ -1828,8 +1828,8 @@ short hoa_processor_patcher_descend(t_patcher *p, t_intmethod fn, void *arg, t_h
 	if (assoc && (t_hoa_processor *) assoc != x) 
 		return 0;
 
-	// CHANGED - DO NOT PASS x AS ARG
-	if ((*fn)(p, arg))
+	// CHANGED - t_intmethod now takes only 1 arg in Max SDK 8.2+
+	if ((*fn)(p))
 		return (1);
 
 	for (b = jpatcher_get_firstobject(p); b; b = jbox_get_nextobject(b))  

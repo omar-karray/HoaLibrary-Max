@@ -42,6 +42,24 @@ xcshareddata/
 ## Max
 #################
 
-*.mxo
-*.mxe
-*.mxe64
+# Ignore built externals in Package/HoaLibrary/externals/
+Package/HoaLibrary/externals/*.mxo
+Package/HoaLibrary/externals/*.mxe
+Package/HoaLibrary/externals/*.mxe64
+
+#################
+## Build
+#################
+
+# CMake build directory
+build/
+Build/
+
+# Release packages (created by create_release.sh)
+releases/
+Releases/
+
+# Temporary files
+*.tmp
+*.swp
+*~

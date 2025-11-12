@@ -29,6 +29,11 @@ extern "C"
 #include "hoa.max_commonsyms.h"
 #include "hoa.max.math.h"
 
+// SYS_MAXSIGS was removed in Max SDK 8.2+, define it for compatibility
+#ifndef SYS_MAXSIGS
+#define SYS_MAXSIGS 250
+#endif
+
 #define HOA_MAX_PLANEWAVES      SYS_MAXSIGS
 #define HOA_MAXBLKSIZE          8192
 #define HOA_UI_BORDERTHICKNESS  1

@@ -1,3 +1,13 @@
+# HoaLibrary-Max - CMake Build Configuration
+#
+# Original HoaLibrary: Copyright (C) 2012-2015 Julien Colafrancesco, Pierre Guillot, Eliott Paris
+# v3.0 Modernization: Copyright (C) 2025 Omar Karray
+#
+# This file is part of HoaLibrary v3.0 for Max 9
+# Licensed under GNU General Public License v3.0
+#
+# CMake build system for Max 9 externals with Universal Binary support
+
 cmake_minimum_required(VERSION 3.19)
 
 project(HoaLibrary-Max)
@@ -33,10 +43,6 @@ if(APPLE)
     endif()
     
     set(CMAKE_OSX_DEPLOYMENT_TARGET "10.11" CACHE STRING "Minimum macOS version" FORCE)
-    
-    # Find required frameworks
-    find_library(MAX_API_FRAMEWORK "MaxAudioAPI" REQUIRED PATHS "${MAX_SDK_MSP_INCLUDES}" NO_DEFAULT_PATH)
-    find_library(JIT_API_FRAMEWORK "JitterAPI" REQUIRED PATHS "${MAX_SDK_JIT_INCLUDES}" NO_DEFAULT_PATH)
 endif()
 
 # HoaLibrary C++ headers (header-only library)
@@ -109,11 +115,30 @@ function(add_hoa_external external_name source_file)
     
     # Link frameworks on macOS
     if(APPLE)
-        target_link_libraries(${target_name} PRIVATE
-            ${MAX_API_FRAMEWORK}
-            ${JIT_API_FRAMEWORK}
+        # Find and link Max SDK frameworks
+        find_library(MAX_AUDIO_API "MaxAudioAPI" REQUIRED 
+            PATHS "${MAX_SDK_MSP_INCLUDES}" 
+            NO_DEFAULT_PATH
+        )
+        find_library(JITTER_API "JitterAPI" REQUIRED
+            PATHS "${MAX_SDK_JIT_INCLUDES}"
+            NO_DEFAULT_PATH
+        )
+        
+        # Read linker flags from Max SDK (undefined symbols will be provided by Max at runtime)
+        file(READ "${MAX_SDK_INCLUDES}/c74_linker_flags.txt" MAX_LINKER_FLAGS)
+        string(STRIP "${MAX_LINKER_FLAGS}" MAX_LINKER_FLAGS)
+        
+        target_link_libraries(${target_name} PUBLIC
+            ${MAX_AUDIO_API}
+            ${JITTER_API}
             "-framework Accelerate"
             "-framework Carbon"
+        )
+        
+        # Add Max SDK linker flags for undefined symbols
+        set_target_properties(${target_name} PROPERTIES
+            LINK_FLAGS "${MAX_LINKER_FLAGS}"
         )
     endif()
     
@@ -134,6 +159,10 @@ add_hoa_external(hoa.2d.meter~ Max2D/hoa.2d.meter_gui_tilde.cpp)
 add_hoa_external(hoa.2d.optim~ Max2D/hoa.2d.optim_tilde.cpp)
 add_hoa_external(hoa.2d.projector~ Max2D/hoa.2d.projector_tilde.cpp)
 add_hoa_external(hoa.2d.recomposer Max2D/hoa.2d.recomposer_gui.cpp)
+target_sources(hoa_2d_recomposer PRIVATE
+    Max2D/ChannelManager.cpp
+)
+
 add_hoa_external(hoa.2d.recomposer~ Max2D/hoa.2d.recomposer_tilde.cpp)
 add_hoa_external(hoa.2d.rotate~ Max2D/hoa.2d.rotate_tilde.cpp)
 add_hoa_external(hoa.2d.scope~ Max2D/hoa.2d.scope_gui_tilde.cpp)
@@ -167,7 +196,11 @@ target_sources(c_convolve_tilde PRIVATE
 add_hoa_external(c.freeverb~ MaxCommon/c.freeverb_tilde.cpp)
 
 add_hoa_external(hoa.connect MaxCommon/hoa.connect.cpp)
+
 add_hoa_external(hoa.dac~ MaxCommon/hoa.dac_tilde.c)
+# Compile .c file as C++ because it includes C++ headers
+set_source_files_properties(MaxCommon/hoa.dac_tilde.c PROPERTIES LANGUAGE CXX)
+
 add_hoa_external(hoa.gain~ MaxCommon/hoa.gain_gui_tilde.cpp)
 add_hoa_external(hoa.in MaxCommon/hoa.in.cpp)
 add_hoa_external(hoa.in~ MaxCommon/hoa.in_tilde.cpp)
