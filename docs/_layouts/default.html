@@ -6,60 +6,65 @@
   <title>{{ page.title | default: site.title }} - HoaLibrary for Max</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
 </head>
 <body>
-  <header class="site-header">
-    <div class="header-container">
-      <div class="site-branding">
-        <h1 class="site-title"><a href="{{ '/' | relative_url }}">HoaLibrary</a></h1>
-        <p class="site-subtitle">for Max 9</p>
+  <div class="page-wrapper">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <h1 class="sidebar-title"><a href="{{ '/' | relative_url }}">HoaLibrary</a></h1>
+        <p class="sidebar-version">v3.0 for Max 9</p>
       </div>
-      <nav class="main-nav">
-        <a href="{{ '/' | relative_url }}">Home</a>
-        <a href="{{ '/getting-started' | relative_url }}">Get Started</a>
-        <a href="{{ '/what-is-hoa' | relative_url }}">Theory</a>
-        <a href="{{ '/tutorials' | relative_url }}">Tutorials</a>
-        <a href="{{ '/examples' | relative_url }}">Examples</a>
-        <a href="{{ '/OBJECTS' | relative_url }}">Reference</a>
-        <a href="https://github.com/omar-karray/HoaLibrary-Max" target="_blank">GitHub</a>
+      
+      <nav class="sidebar-nav">
+        <div class="nav-section">
+          <div class="nav-section-title">Getting Started</div>
+          <a href="{{ '/' | relative_url }}" class="nav-link">Overview</a>
+          <a href="{{ '/getting-started' | relative_url }}" class="nav-link">Quick Start</a>
+          <a href="{{ '/INSTALLATION' | relative_url }}" class="nav-link">Installation</a>
+        </div>
+        
+        <div class="nav-section">
+          <div class="nav-section-title">Learn</div>
+          <a href="{{ '/what-is-hoa' | relative_url }}" class="nav-link">What is HOA?</a>
+          <a href="{{ '/tutorials' | relative_url }}" class="nav-link">Tutorials</a>
+          <a href="{{ '/examples' | relative_url }}" class="nav-link">Examples</a>
+        </div>
+        
+        <div class="nav-section">
+          <div class="nav-section-title">Reference</div>
+          <a href="{{ '/OBJECTS' | relative_url }}" class="nav-link">All Objects</a>
+          <a href="{{ '/references' | relative_url }}" class="nav-link">Resources</a>
+        </div>
+        
+        <div class="nav-section">
+          <a href="https://github.com/omar-karray/HoaLibrary-Max" target="_blank" class="nav-link external">
+            GitHub Repository →
+          </a>
+          <a href="https://github.com/omar-karray/HoaLibrary-Max/releases/latest" target="_blank" class="nav-link external">
+            Download v3.0 →
+          </a>
+        </div>
       </nav>
-    </div>
-  </header>
-
-  <main class="main-content">
-    <div class="content-container">
-      {{ content }}
-    </div>
-  </main>
-
-  <footer class="site-footer">
-    <div class="footer-container">
-      <div class="footer-section">
-        <h4>HoaLibrary v3.0</h4>
-        <p>High Order Ambisonics for Max 9</p>
+      
+      <div class="sidebar-footer">
+        <p>Maintained by<br><strong>Omar Karray</strong></p>
+        <p class="sidebar-copyright">Originally by CICM<br>Université Paris 8</p>
       </div>
-      <div class="footer-section">
-        <h4>Maintained by</h4>
-        <p><a href="https://github.com/omar-karray">Omar Karray</a></p>
+    </aside>
+    
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="content-wrapper">
+        {{ content }}
       </div>
-      <div class="footer-section">
-        <h4>Originally by</h4>
-        <p>CICM - Université Paris 8</p>
-      </div>
-      <div class="footer-section">
-        <h4>Links</h4>
-        <p>
-          <a href="https://github.com/omar-karray/HoaLibrary-Max">GitHub</a> • 
-          <a href="https://github.com/omar-karray/HoaLibrary-Max/releases">Releases</a> • 
-          <a href="https://github.com/omar-karray/HoaLibrary-Max/issues">Support</a>
-        </p>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>Licensed under GPL v3.0 • Made with ❤️ for the Max community</p>
-    </div>
-  </footer>
+      
+      <footer class="content-footer">
+        <p>Licensed under GPL v3.0 • <a href="https://github.com/omar-karray/HoaLibrary-Max">GitHub</a> • <a href="https://github.com/omar-karray/HoaLibrary-Max/issues">Support</a></p>
+      </footer>
+    </main>
+  </div>
 </body>
 </html>

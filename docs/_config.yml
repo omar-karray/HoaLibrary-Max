@@ -1,7 +1,5 @@
 title: HoaLibrary for Max
 description: High Order Ambisonics library for Max 9 with Apple Silicon support
-theme: jekyll-theme-cayman
-show_downloads: true
 github:
   repository_url: https://github.com/omar-karray/HoaLibrary-Max
   zip_url: https://github.com/omar-karray/HoaLibrary-Max/releases/latest
