@@ -1,3 +1,8 @@
+---
+layout: default
+title: Object Reference
+---
+
 # HoaLibrary Objects Reference
 
 Complete list of all objects included in HoaLibrary v3.0 for Max 9.

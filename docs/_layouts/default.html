@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title | default: site.title }}</title>
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+</head>
+<body>
+  <header class="page-header">
+    <h1 class="project-name">HoaLibrary for Max</h1>
+    <h2 class="project-tagline">High Order Ambisonics for Max 9</h2>
+    <a href="https://github.com/omar-karray/HoaLibrary-Max/releases/latest" class="btn">Download v3.0</a>
+    <a href="https://github.com/omar-karray/HoaLibrary-Max" class="btn">View on GitHub</a>
+  </header>
+
+  <nav class="main-nav">
+    <a href="{{ '/' | relative_url }}">Home</a>
+    <a href="{{ '/getting-started' | relative_url }}" class="nav-highlight">Get Started</a>
+    <a href="{{ '/what-is-hoa' | relative_url }}">Theory</a>
+    <a href="{{ '/tutorials' | relative_url }}">Tutorials</a>
+    <a href="{{ '/examples' | relative_url }}">Examples</a>
+    <a href="{{ '/OBJECTS' | relative_url }}">Reference</a>
+    <a href="https://github.com/omar-karray/HoaLibrary-Max">GitHub</a>
+  </nav>
+
+  <main class="main-content">
+    {{ content }}
+  </main>
+
+  <footer class="site-footer">
+    <span class="site-footer-owner">
+      <a href="https://github.com/omar-karray/HoaLibrary-Max">HoaLibrary-Max</a> 
+      is maintained by <a href="https://github.com/omar-karray">Omar Karray</a>.
+    </span>
+    <span class="site-footer-credits">
+      Originally created by CICM - Université Paris 8
+    </span>
+  </footer>
+</body>
+</html>

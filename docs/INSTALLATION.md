@@ -1,3 +1,8 @@
+---
+layout: default
+title: Installation Guide
+---
+
 # Installation Guide - HoaLibrary for Max 9
 
 ## Quick Installation
