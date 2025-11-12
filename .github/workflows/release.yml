@@ -21,19 +21,15 @@ jobs:
       run: |
         brew install cmake
     
-    - name: Download Max SDK
+    - name: Clone Max SDK
       run: |
-        mkdir -p ~/max-sdk
-        cd ~/max-sdk
-        curl -L -o max-sdk.zip https://cycling74.com/download/max-sdk-8.2.0
-        unzip -q max-sdk.zip
-        mv max-sdk-* max-sdk
+        git clone --depth 1 --branch main https://github.com/Cycling74/max-sdk.git ~/max-sdk
     
     - name: Configure CMake
       run: |
         mkdir -p build
         cd build
-        cmake .. -DMAX_SDK_PATH=~/max-sdk/max-sdk
+        cmake .. -DMAX_SDK_PATH=~/max-sdk
     
     - name: Build all externals
       run: |
