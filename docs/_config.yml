@@ -8,14 +8,54 @@ github:
 navigation:
   - title: Home
     url: /
-  - title: What is HOA?
-    url: /what-is-hoa
-  - title: Installation
-    url: /INSTALLATION
-  - title: Objects
-    url: /OBJECTS
-  - title: Tutorials
-    url: /tutorials
+  - title: Getting Started
+    url: /guides/getting-started
+    subitems:
+      - title: Quick Start
+        url: /guides/getting-started
+      - title: Tutorials
+        url: /guides/tutorials
+      - title: Examples
+        url: /guides/examples
+      - title: Installation
+        url: /legacy/INSTALLATION
+  - title: Learn HOA
+    url: /theory/what-is-hoa
+    subitems:
+      - title: What is HOA?
+        url: /theory/what-is-hoa
+      - title: Objects Reference
+        url: /OBJECTS
+      - title: Academic References
+        url: /guides/references
+  - title: Knowledge Base
+    url: /knowledge_base/
+    subitems:
+      - title: Overview
+        url: /knowledge_base/index
+      - title: Ambisonics Theory
+        url: /knowledge_base/abisonics_knowledge_base
+      - title: Practical Guide
+        url: /knowledge_base/practical_implementation_guide_ambisonics
+      - title: Granular Synthesis
+        url: /knowledge_base/spacial_granular_synthesis
+      - title: Quick Reference
+        url: /knowledge_base/quick_refs
+  - title: Developer Docs
+    url: /api/API_REFERENCE
+    subitems:
+      - title: API Reference
+        url: /api/API_REFERENCE
+      - title: C++ Quick Guide
+        url: /guides/CPP_REFRESHER
+      - title: Architecture
+        url: /reference/ARCHITECTURE
+      - title: Technical Audit
+        url: /reference/TECHNICAL_AUDIT
+      - title: Optimization Guide
+        url: /reference/OPTIMIZATION_GUIDE
+      - title: Code Summary
+        url: /reference/CODE_AUDIT_SUMMARY
   - title: GitHub
     url: https://github.com/omar-karray/HoaLibrary-Max
 

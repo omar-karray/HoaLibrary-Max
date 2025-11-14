@@ -11,9 +11,24 @@ title: What is Higher Order Ambisonics?
 
 ## Introduction
 
-**Ambisonics** is a comprehensive set of techniques for the recording, synthesis, transformation, and restitution of sound fields. Unlike traditional surround sound that routes audio signals to specific speakers, Ambisonics is based on a **physical representation** of the sound space that allows a wide range of sound and space processing operations.
+**Ambisonics** is a comprehensive set of techniques for the recording, synthesis, transformation, and restitution of sound fields. 
+
+### The Key Idea: Representing Space, Not Just Speakers
+
+Unlike traditional surround sound that routes audio signals to specific speakers (like stereo panning or 5.1 mixing), Ambisonics works fundamentally differently:
+
+- **Traditional approach**: "Send this sound 60% to the left speaker, 40% to the right speaker"
+- **Ambisonics approach**: "This sound is coming from 30° to the left" → The system figures out how to reproduce that on ANY speaker configuration
+
+Ambisonics is based on a **physical representation** of the sound space itself, which allows a wide range of sound and space processing operations independent of the playback system.
+
+### The Mathematical Foundation
 
 At its core, Ambisonics represents sound fields using **spherical harmonics** (for 3D) or **circular harmonics** (for 2D horizontal plane). This mathematical representation captures the complete directional information of a sound field at a single point in space, making it independent of the playback system.
+
+Think of it like this:
+- **Fourier analysis** decomposes sound over **time** into frequencies
+- **Ambisonics** decomposes sound over **space** into directions
 
 **Higher Order Ambisonics (HOA)** extends basic first-order Ambisonics by using higher harmonic orders, providing dramatically increased spatial resolution and accuracy. The HoaLibrary gives you access to orders up to 35 in 2D (71 channels) and up to 10 in 3D (121 channels), though practical applications typically use orders 3-7.
 

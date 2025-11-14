@@ -35,6 +35,7 @@ By the end of this guide, you'll be able to:
 - 🎧 Headphones for binaural testing
 - 🔊 Stereo speakers for initial experiments
 - 📖 Read [What is HOA?](what-is-hoa.md) for theory
+- 📚 Explore [Knowledge Base](knowledge_base/index.html) for deeper understanding
 
 ---
 

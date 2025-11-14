@@ -4,6 +4,12 @@
 **Documentation**: Complete API reference for all Max objects and C++ classes  
 **Organization**: Grouped by Max object with corresponding C++ implementation details
 
+**📚 See also:**
+- [Object Reference](OBJECTS.html) - Quick object list
+- [Knowledge Base](knowledge_base/index.html) - Theory and workflows
+- [C++ Refresher](CPP_REFRESHER.html) - C++ language review
+- [Architecture](ARCHITECTURE.html) - System design
+
 ---
 
 ## Table of Contents

@@ -7,6 +7,11 @@ title: Object Reference
 
 Complete list of all objects included in HoaLibrary v3.0 for Max 9.
 
+**📚 See also:**
+- [API Reference](API_REFERENCE.html) - Detailed technical documentation
+- [Knowledge Base](knowledge_base/index.html) - Theory and practical workflows
+- [Tutorials](tutorials.html) - Step-by-step guides
+
 ## 2D Higher Order Ambisonics
 
 ### Encoding & Decoding

@@ -45,19 +45,19 @@ A comprehensive suite of externals and patches for 2D and 3D spatial audio proce
   <div class="card highlight">
     <h3>Getting Started</h3>
     <p><strong>New to ambisonics?</strong> Follow our step-by-step guide to create your first spatial audio patch in 30 minutes</p>
-    <a href="getting-started.html" class="button primary">Start Tutorial</a>
+    <a href="guides/getting-started.html" class="button primary">Start Tutorial</a>
   </div>
   
   <div class="card">
     <h3>Installation</h3>
     <p>Download and set up HoaLibrary in Max 9</p>
-    <a href="INSTALLATION.html" class="button">Install Now</a>
+    <a href="legacy/INSTALLATION.html" class="button">Install Now</a>
   </div>
   
   <div class="card">
     <h3>What is HOA?</h3>
     <p>Understand the theory behind Higher Order Ambisonics</p>
-    <a href="what-is-hoa.html" class="button">Learn Theory</a>
+    <a href="theory/what-is-hoa.html" class="button">Learn Theory</a>
   </div>
 </div>
 
@@ -67,15 +67,21 @@ A comprehensive suite of externals and patches for 2D and 3D spatial audio proce
 
 <div class="cards">
   <div class="card">
+    <h3>📚 Knowledge Base</h3>
+    <p><strong>Comprehensive resources:</strong> Theory, workflows, and spatial granular synthesis</p>
+    <a href="knowledge_base/index.html" class="button">Explore Knowledge Base</a>
+  </div>
+  
+  <div class="card">
     <h3>Interactive Tutorials</h3>
     <p>10 built-in Max patches teaching HOA concepts hands-on</p>
-    <a href="tutorials.html" class="button">Browse Tutorials</a>
+    <a href="guides/tutorials.html" class="button">Browse Tutorials</a>
   </div>
   
   <div class="card">
     <h3>Practical Examples</h3>
     <p>Copy-paste ready patches: stereo, multichannel, VR, effects</p>
-    <a href="examples.html" class="button">See Examples</a>
+    <a href="guides/examples.html" class="button">See Examples</a>
   </div>
   
   <div class="card">
@@ -87,25 +93,43 @@ A comprehensive suite of externals and patches for 2D and 3D spatial audio proce
 
 ---
 
-## Advanced Topics
+## Developer Resources
 
 <div class="cards">
   <div class="card">
-    <h3>Building from Source</h3>
-    <p>Compile HoaLibrary yourself for Max 9 and Apple Silicon</p>
-    <a href="../BUILD.html" class="button">Build Guide</a>
+    <h3>⚡ C++ Quick Refresher</h3>
+    <p>Back to C++ after PHP/Laravel? Quick guide to pointers, headers, and templates</p>
+    <a href="guides/CPP_REFRESHER.html" class="button">Review C++</a>
+  </div>
+  
+  <div class="card">
+    <h3>📘 API Reference</h3>
+    <p>Complete C++ API documentation for all classes and Max objects</p>
+    <a href="api/API_REFERENCE.html" class="button">Browse API</a>
+  </div>
+  
+  <div class="card">
+    <h3>🏗️ Architecture Guide</h3>
+    <p>System architecture with Mermaid diagrams and design patterns</p>
+    <a href="reference/ARCHITECTURE.html" class="button">Explore Architecture</a>
+  </div>
+  
+  <div class="card">
+    <h3>🔬 Technical Audit</h3>
+    <p>Deep dive into DSP implementation and code quality analysis</p>
+    <a href="reference/TECHNICAL_AUDIT.html" class="button">Read Audit</a>
+  </div>
+  
+  <div class="card">
+    <h3>⚙️ Optimization Guide</h3>
+    <p>Performance tuning strategies with benchmarks and SIMD techniques</p>
+    <a href="reference/OPTIMIZATION_GUIDE.html" class="button">Optimize</a>
   </div>
   
   <div class="card">
     <h3>Academic References</h3>
     <p>Research papers, institutions, citations, and related software</p>
-    <a href="references.html" class="button">Explore</a>
-  </div>
-  
-  <div class="card">
-    <h3>What's New in v3.0</h3>
-    <p>Release notes, changelog, and migration guide</p>
-    <a href="../RELEASE_NOTES.html" class="button">See Changes</a>
+    <a href="guides/references.html" class="button">Explore</a>
   </div>
 </div>
 
